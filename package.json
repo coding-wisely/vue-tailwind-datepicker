@@ -1,7 +1,7 @@
 {
   "name": "@coding-wisely/vue-tailwind-datepicker",
-  "version": "1.0.8",
-  "description": "Datepicker component based on Tailwind css and Vue.js",
+  "version": "1.0.9",
+  "description": "Datepicker component based on Tailwind.css and Vue.js",
   "main": "dist/vue-tailwind-datepicker.umd.js",
   "module": "dist/vue-tailwind-datepicker.esm.js",
   "unpkg": "dist/vue-tailwind-datepicker.min.js",
@@ -41,10 +41,10 @@
     "rollup-plugin-vue": "^5.1.5",
     "tailwind": "^4.0.0",
     "vue": "^2.6.11",
-    "vue-template-compiler": "^2.6.11"
+    "vue-template-compiler": "^2.6.11",
+    "postcss-import": "^12.0.1"
   },
   "dependencies": {
-    "moment": "^2.24.0",
-    "postcss-import": "^12.0.1"
+    "moment": "^2.24.0"
   }
 }

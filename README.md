@@ -1,6 +1,9 @@
 # Vue Tailwind Datepicker
 Datepicker component based on Tailwind and Vue
 
+[![Github All Releases](https://img.shields.io/github/downloads/@coding-wisely/vue-tailwind-datepicker/total.svg)]()
+
+
 ![Vue Tailwind Datepicker](vue-tailwind-datepicker.gif)
 
 
@@ -99,6 +102,19 @@ Vue.component('vue-tailwind-datepicker', VueTailwindDatepicker)
 ### Props
 
   Test all props on [Code Pen](https://codepen.io/thcoder/pen/JjozmeE?editors=1111).
+  
+  **IMPORTANT**
+  
+  Props shall be called with hypens. 
+  
+  __Example:__ `<vue-tailwind-datepicker picker-wrapper-classess="flex w-full" />`
+  
+  **REMEMBER**
+   
+  
+  If you ad props classes, dont forget that defaults on particular props classes will not be applied at all, default will be ignored, and only your, props class will be applied.
+  Means, `<vue-tailwind-datepicker input-field-classess="w-full" />` will be applied on input field, and default classes on input field will be ignored. 
+  
 
   | Property | Type | Default value | Description |
   | -------- | ---- | ------------- | ----------- |
