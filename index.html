@@ -1,0 +1,170 @@
+<html>
+<link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+<style>
+    /* -----
+    SVG Icons - svgicons.sparkk.fr
+    ----- */
+
+    .svg-icon {
+        width: 1em;
+        height: 1em;
+    }
+
+    .svg-icon path,
+    .svg-icon polygon,
+    .svg-icon rect {
+        fill: #4691f6;
+    }
+
+    .svg-icon circle {
+        stroke: #4691f6;
+        stroke-width: 1;
+    }
+
+    .slide-leave-active,
+    .slide-enter-active {
+        transition: 1s;
+    }
+
+    .slide-enter {
+        transform: translate(-100%, 0);
+    }
+
+    .slide-leave-to {
+        transform: translate(-100%, 0);
+    }
+
+    .open {
+        position: absolute;
+        left: 0;
+        transition: all .3s ease;
+    }
+
+</style>
+<body>lalala
+<div id="example">
+    <datepicker inline-template selected-day-class="bg-teal-300"
+                input-field-class="bg-green-200 h-12 focus:outline-none w-full border-b border-grey-500"
+                date-format="YYYY-MM-DD">
+    </datepicker>
+    <test v-model="datum"></test>
+</div>
+<script src="https://unpkg.com/vue"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+
+<script>
+    Vue.component('test', {
+        template: `<datepicker/>`,
+        data(){
+            return {
+                datum: ''
+            }
+        }
+    })
+    Vue.component('datepicker', {
+        data() {
+            return {
+                hideCalendar: false,
+                today: moment(),
+                dateContext: moment(),
+                days: ['S', 'M', 'T', 'W', 'T', 'F', 'S'],
+                activeIndex: null,
+                selectedDate: moment().format(this.dateFormat)
+            }
+        },
+        methods: {
+            selectDay(event, index) {
+                this.activeIndex = index;
+                let target = event.target.innerHTML;
+                this.selectedDate = this.formatSelectedDate(target);
+                this.$emit('input', this.selectedDate);
+            },
+            formatSelectedDate(target) {
+                if (target) {
+                    day = target;
+                } else {
+                    day = this.currentDate
+                }
+                let month = moment().month(this.month).format("MM");
+                let year = moment().year(this.year).format("YYYY");
+                let str = moment(year + '-' + month + '-' + day, this.dateFormat, false).format();
+                let selected = moment(str).utcOffset(str);
+                return selected.format(this.dateFormat);
+            },
+            showCalendar() {
+                return this.hideCalendar = !this.hideCalendar;
+            },
+            addMonth() {
+                this.dateContext = moment(this.dateContext).add(1, 'month');
+            },
+            subtractMonth() {
+                this.dateContext = moment(this.dateContext).subtract(1, 'month');
+            }
+        },
+        computed: {
+            year() {
+                return this.dateContext.format('Y');
+            },
+            month() {
+                return this.dateContext.format('MMMM');
+            },
+            daysInMonth() {
+                return this.dateContext.daysInMonth();
+            },
+            currentDate() {
+                return this.dateContext.get('date');
+            },
+            firstDayOfMonth() {
+                let firstDay = moment(this.dateContext).subtract((this.currentDate - 1), 'days');
+                return firstDay.weekday();
+            },
+            initialDate() {
+                return this.today.get('date');
+            },
+            initialMonth() {
+                return this.today.format('MMMM');
+            },
+            initialYear: function () {
+                return this.today.format('Y');
+            }
+        },
+        props: {
+            dateFormat: {
+                type: String,
+                default: 'YYYY/MM/DD'
+            },
+            selectedDayClass: {
+                type: String,
+                default: 'bg-gray-100'
+            },
+            currentDayClass: {
+                type: String,
+                default: 'bg-green-100'
+            },
+            chevronClass: {
+                type: String,
+                default: 'w-10 h-10'
+            },
+            chevron: {
+                left: '<',
+                right: '>'
+            },
+            inputFieldClass: {
+                type: String,
+                default: 'h-12 focus:outline-none w-full border-b border-grey-500'
+            },
+            calendarDivClass: {
+                type: String,
+            },
+            textSize: {
+                type: String,
+                default: 'text-2xl'
+            }
+        },
+    })
+    new Vue({
+        el: '#example',
+    })
+</script>
+</body>
+</html>
