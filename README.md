@@ -1,7 +1,7 @@
 # Vue Tailwind Datepicker
 Datepicker component based on Tailwind and Vue
 
-[![Github All Releases](https://img.shields.io/github/downloads/@coding-wisely/vue-tailwind-datepicker/total.svg)]()
+[![Github All Releases](https://img.shields.io/github/downloads/coding-wisely/vue-tailwind-datepicker/total.svg)]()
 
 
 ![Vue Tailwind Datepicker](vue-tailwind-datepicker.gif)
