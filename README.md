@@ -58,21 +58,26 @@ Then use the component directly:
 ```html
 <!-- your-component.vue-->
 <template>
-  <vue-tailwind-datepicker v-model="date"></vue-tailwind-datepicker>
+  <vue-tailwind-datepicker v-model="date" @input="setStartDate"></vue-tailwind-datepicker>
 </template>
 <script>
 import { VueTailwindDatepicker } from '@coding-wisely/vue-tailwind-datepicker'
 
 export default {
-  components: {
-    VueTailwindDatepicker,
-  },
-data(){
-    return {
-        date: ''
+    components: {
+        VueTailwindDatepicker,
+    },
+    data(){
+        return {
+            startDate: '',
+            form: {}
+        }
+    },
+    methods: {
+        setStartDate(startDate) {
+            this.form.startDate = startDate;
+        }
     }
-}
-
 };
 </script>
 ```
