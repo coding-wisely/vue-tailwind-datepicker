@@ -128,5 +128,6 @@ Vue.component('vue-tailwind-datepicker', VueTailwindDatepicker)
   | `chevronClasses` | `String` | `w-10 h-10` | CSS classess applied on Previous and Next SVG |
   | `dateFormat` | `String` | `YYYY-MM-DD` | Javascript moment library date format|
   | `preselectedDay` | `String` | `` | Javascript moment library date format and it shall match deafult dateFormat above |
+  | `closeOnClick` | `Boolean` | `true` | Whether calendar days will close on click or not |
 
 Made with &#x2764; by [Coding Wisely](https://github.com/coding-wisely).
