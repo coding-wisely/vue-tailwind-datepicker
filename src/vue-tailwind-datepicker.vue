@@ -150,7 +150,7 @@
       if (this.value.length > 0) {
         this.selectedDate = this.value;
       }
-    }
+    },
     props: {
       pickerWrapperClasses: {
         type: String,
