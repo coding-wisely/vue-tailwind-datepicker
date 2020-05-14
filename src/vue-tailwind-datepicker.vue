@@ -92,6 +92,8 @@
       formatSelectedDate (target) {
         let day = target ? target : this.currentDate
 
+        console.log(target);
+
         let month = moment()
         .month(this.month)
         .format('MM')
@@ -148,7 +150,8 @@
     },
     mounted() {
       if (this.value.length > 0) {
-        this.selectedDate = this.formatSelectedDate(this.value)
+        this.selectedDate = this.value;
+        this.dateContext = moment(this.value);
       }
     },
     props: {
