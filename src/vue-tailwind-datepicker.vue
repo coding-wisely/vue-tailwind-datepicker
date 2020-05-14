@@ -92,8 +92,6 @@
       formatSelectedDate (target) {
         let day = target ? target : this.currentDate
 
-        console.log(target);
-
         let month = moment()
         .month(this.month)
         .format('MM')
