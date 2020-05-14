@@ -148,7 +148,7 @@
     },
     mounted() {
       if (this.value.length > 0) {
-        this.selectedDate = this.value;
+        this.selectedDate = this.formatSelectedDate(this.value)
       }
     },
     props: {
