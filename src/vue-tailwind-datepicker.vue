@@ -99,11 +99,10 @@
         .year(this.year)
         .format('YYYY')
         let str = moment(
-          year + '-' + month + '-' + day,
-          this.dateFormat,
-          false
-        ).format()
+          year + '-' + month + '-' + day
+        ).format();
         let selected = moment(str).utcOffset(str)
+        
         return selected.format(this.dateFormat)
       },
       showCalendar () {
