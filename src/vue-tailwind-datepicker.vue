@@ -98,13 +98,10 @@
         let year = moment()
         .year(this.year)
         .format('YYYY')
-        console.log(year)
         let str = moment(
           year + '-' + month + '-' + day
         ).format();
-        console.log(str)
         let selected = moment(str).utcOffset(str)
-        console.log(selected)
         return selected.format(this.dateFormat)
       },
       showCalendar () {
