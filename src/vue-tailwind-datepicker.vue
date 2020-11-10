@@ -144,6 +144,12 @@
         return this.today.format('Y')
       }
     },
+    mounted() {
+      if (this.value.length > 0) {
+        this.selectedDate = this.value;
+        this.dateContext = moment(this.value);
+      }
+    },
     props: {
       pickerWrapperClasses: {
         type: String,
@@ -184,6 +190,10 @@
       closeOnClick: {
         type: Boolean,
         default: true
+      },
+      value: {
+        type: String,
+        default: ''
       }
     }
   }
